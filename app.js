@@ -5,11 +5,16 @@ const app = express();
 
 // Create MySQL connection
 const connection = mysql.createConnection({
-  host: '',
-  user: 'root',
-  password: '',
-  port: 3307,
-  database: 'cookie'
+  //host: '',
+  //user: 'root',
+  //password: '',
+  //port: 3307,
+  //database: 'cookie'
+
+  host: 'alwaysdata.com',
+  user: 'cheryl',
+  password:'Ccly28022005',
+  database: 'cheryl_cookie'
 });
 
 connection.connect((err) => {
