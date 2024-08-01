@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Cookie Delight Shop</title>
+  <style>
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); 
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .card img {
+      object-fit: cover;
+      height: 200px;
+    }
+
+    body {
+      background-image: url('/images/hp.png');
+      background-size: cover;
+      background-attachment: fixed; 
+    }
+
+    .font {
+      font-family: 'Crete Round';
+      font-weight: 700;
+      font-size: 60px;
+    }
+
+    .c {
+      background-color: rgb(255, 243, 228);
+    }
+
+    .h {
+      margin-left: 850px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">&copy; Cookie Delight</a>
+      <a class="navbar-brand h" href="/user/<%= userid %>/cart">View Cart</a>
+      <a class="navbar-brand" href="/">Log Out</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h2 class="text-center mb-4 font">Cookie Delight Shop</h2>
+    <h3 class="text-center">Welcome, <%= username %>!</h3>
+    
+    <div class="card-container">
+      <% product.forEach(prod => { %> 
+        <div class="card c">
+          <img src="/images/<%= prod.image %>" class="card-img-top" alt="<%= prod.productName %>">
+          <div class="card-body">
+            <h5 class="card-title"><b><%= prod.productName %></b></h5>
+            <p class="card-text"><%= prod.description %></p>
+            <p class="card-text">Price: $<%= prod.price %></p>
+            <a href="/user/<%= userid %>/add-to-cart/<%= prod.productId %>" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  
+  <div id="cartDisplay"></div>
+</body>
+</html>
