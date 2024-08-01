@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   //port: 3307,
   //database: 'cookie'
 
-  host: 'alwaysdata.com',
+  host: 'mysql-cheryl.alwaysdata.net',
   user: 'cheryl',
   password:'Ccly28022005',
   database: 'cheryl_cookie'
